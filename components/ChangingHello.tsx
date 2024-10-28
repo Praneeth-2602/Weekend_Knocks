@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 const thankyouList = [
-  'thank you',
+  'Thank you',
   'gracias',
   'धन्यवाद',
   'merci',

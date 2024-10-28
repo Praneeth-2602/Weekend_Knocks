@@ -2,6 +2,7 @@
 import { Open_Sans } from 'next/font/google';
 import { IoMdMail } from "react-icons/io";
 import { FiInstagram } from 'react-icons/fi';
+import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
@@ -28,36 +29,41 @@ const Sample = () => {
               A way to share stories anonymously.
             </p>
             <div className="flex mt-4 space-x-4 items-baseline justify-center md:items-start md:justify-start">
-              <a href="https://twitter.com/" target="_blank">
+              {/* <a href="https://twitter.com/" target="_blank">
                 <FaXTwitter className="dark:text-white text-2xl" />
-              </a>
+              </a> */}
               <a href="https://www.instagram.com/raw_shots29/" target="_blank">
                 <FiInstagram className="dark:text-white text-2xl " />
               </a>
-              <a
+
+              <a href="" target="_blank">
+             <FaYoutube className="dark:text-white text-2xl" />
+              </a>
+
+              {/* <a
                 href="https://www.linkedin.com/in/sayak-bhunia-452419252/"
                 target="_blank"
               >
                 <FaLinkedin className="dark:text-white text-2xl " />
-              </a>
+              </a> */}
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=sbhunia2903@gmail.com"
                 target="_blank"
               >
                 <IoMdMail className="dark:text-white text-2xl " />
               </a>
-              <a
+              {/* <a
                 href="https://github.com/Sayak-Bhunia/mystory/"
                 target="_blank"
               >
                 <FaGithub className="dark:text-white text-2xl " />
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="https://discord.com/"
                 target="_blank"
               >
                 <FaDiscord className="dark:text-white text-2xl " />
-              </a>
+              </a> */}
             </div>
             <a
               href="/docs/privacy-policy"
