@@ -25,9 +25,9 @@ export default function LoginPage() {
       }}
     ></div>
             <div className="w-full max-w-sm p-6 m-auto mx-auto bg-transparent rounded-lg shadow-md dark:bg-transparent">
+                
     <div className="flex justify-center mx-auto h-30 ">
     <img  src={logo.src}  alt="Logo"/>
-
     </div>
 
     <form className="mt-6">
