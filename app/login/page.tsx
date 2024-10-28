@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '@/assets/logo.png';
 import Navbar from '@/components/Navbar';
+import Footer from "@/components/Footer";
+
 
 
 export default function LoginPage() {
@@ -67,6 +69,8 @@ export default function LoginPage() {
     <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <a href="#" className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Create One</a></p>
 </div>
             </div>
+
+            <Footer/>
         </div>
        
     );

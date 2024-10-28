@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Footer from "@/components/Footer";
 
 export default function ServicesPage() {
 
@@ -8,6 +9,7 @@ export default function ServicesPage() {
         <div className='flex justify-center items-center min-h-screen'>
             <h1> Our Services</h1>
             </div>
+            <Footer/>
     </div>
     
     );
