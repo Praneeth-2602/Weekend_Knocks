@@ -42,7 +42,7 @@ export default function Navbar() {
 					{navItems.map((item, index) => (
 						<li key={index}>
 							<Link href={item.link}>
-								<motion.span
+							<motion.span
 									initial={{ y: -10 }} // Start from above
 									whileHover={{ y: 5 }} // Move down on hover
 									transition={{ type: "spring", stiffness: 300 }}
