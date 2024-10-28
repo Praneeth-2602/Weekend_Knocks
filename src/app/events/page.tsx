@@ -1,5 +1,6 @@
 export default function EventsPage() {
-
-    <h1>Up Coming Events</h1>
+    return(
+        <h1>About Us</h1>
+    );
 
 }

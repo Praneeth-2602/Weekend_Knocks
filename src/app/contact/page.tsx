@@ -1,5 +1,6 @@
 export default function ContactPage() {
-
-    <h1>Contact</h1>
+    return(
+        <h1>About Us</h1>
+    );
 
 }
