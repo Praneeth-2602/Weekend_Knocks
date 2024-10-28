@@ -10,6 +10,20 @@ export default function LoginPage() {
         <div>
             <Navbar/>
              <div className="flex justify-center items-center min-h-screen">
+             <div 
+      style={{
+        backgroundImage: `url(${logobg.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        filter: 'blur(8px)', // Adjust the blur radius as needed
+        zIndex: -1, // Places background behind content
+      }}
+    ></div>
             <div className="w-full max-w-sm p-6 m-auto mx-auto bg-transparent rounded-lg shadow-md dark:bg-transparent">
     <div className="flex justify-center mx-auto h-30 ">
     <img  src={logo.src}  alt="Logo"/>
@@ -41,7 +55,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-between mt-4">
         <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-        <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
+        <a href="#" className="text-xs text-center text-white uppercase dark:text-white hover:underline">
             or login with Social Media
         </a>
 
@@ -66,7 +80,14 @@ export default function LoginPage() {
         </a>
     </div>
 
-    <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <a href="#" className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Create One</a></p>
+    <div>
+  <p className="mt-8 text-xm font-light text-center text-black">
+    Don't have an account? 
+    <a href="#" className="font-large text-gray-700 dark:text-black-200 hover:underline">
+      Create One
+    </a>
+  </p>
+</div>
 </div>
             </div>
 

@@ -1,8 +1,7 @@
+
 import Navbar from '@/components/Navbar';
 import banner from '@/assets/banner2.jpg';
 import Footer from "@/components/Footer";
-
-
 
 export default function SignupPage() {
 
@@ -76,7 +75,4 @@ export default function SignupPage() {
     <Footer/>
     </>
     );
-
-
-
 }
