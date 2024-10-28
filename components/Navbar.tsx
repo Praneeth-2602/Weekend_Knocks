@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 export default function Navbar() {
 	const [isHovered, setIsHovered] = useState(false);
@@ -21,37 +22,47 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className={`w-full fixed top-0 z-10 transition-all duration-300 ${isHovered ? "py-6" : "py-3"
-				} bg-opacity-75 bg-black`}
+			className={`w-full fixed top-0 z-10 transition-all duration-300 bg-background bg-opacity-90`}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<div className="container mx-auto flex items-center justify-between">
-				<ul
-					className={`flex space-x-4 ${isHovered ? "space-x-8" : "space-x-2"
-						} transition-all duration-300`}
-				>
+			<div className="container mx-auto flex items-center justify-between px-8 py-6">
+				{/* Logo Section (Left) */}
+				<div className="flex items-center space-x-2">
+					<img src="path/to/trident-logo.png" alt="" className="h-10 w-auto" />
+					<div>
+						<h1 className="text-lg font-bold tracking-wide text-primary-foreground">Weekend Knocks</h1>
+						<p className="text-xs font-medium tracking-wider text-muted-foreground">GAMING & ENTERTAINMENT</p>
+					</div>
+				</div>
+
+				{/* Navigation Links (Center) */}
+				<ul className="flex space-x-6 text-sm font-semibold text-primary-foreground">
 					{navItems.map((item, index) => (
 						<li key={index}>
 							<Link href={item.link}>
-								<span className="relative inline-block text-white font-semibold hover:translate-y-1 transition-all duration-300 cursor-pointer">
+								<motion.span
+									initial={{ y: -10 }} // Start from above
+									whileHover={{ y: 5 }} // Move down on hover
+									transition={{ type: "spring", stiffness: 300 }}
+									className="hover:text-primary transition-all duration-300 cursor-pointer"
+								>
 									{item.name}
-									<span className="absolute inset-0 text-transparent hover:text-white transition-all duration-300 -translate-y-full hover:translate-y-0">
-										{item.name}
-									</span>
-								</span>
+								</motion.span>
 							</Link>
 						</li>
 					))}
 				</ul>
+
+				{/* Buttons (Right) with Glow Effect */}
 				<div className="flex space-x-4">
 					<Link href="/login">
-						<button className="px-4 py-2 bg-blue-600 hover:bg-opacity-75 text-white font-semibold rounded-lg shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
+						<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 							Login
 						</button>
 					</Link>
 					<Link href="/signup">
-						<button className="px-4 py-2 bg-green-600 hover:bg-opacity-75 text-white font-semibold rounded-lg shadow-lg hover:shadow-green-500/50 transition-all duration-300">
+						<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 							Signup
 						</button>
 					</Link>
