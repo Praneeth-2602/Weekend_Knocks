@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion"; // Import motion from framer-motion
+import logo from "@/assets/logo.png";
 
 export default function Navbar() {
 	const [isHovered, setIsHovered] = useState(false);
@@ -11,12 +12,12 @@ export default function Navbar() {
 	const handleMouseLeave = () => setIsHovered(false);
 
 	const navItems = [
-		{ name: "Home", link: "#" },
-		{ name: "About Us", link: "#" },
-		{ name: "Services", link: "#" },
-		{ name: "Our Work", link: "#" },
-		{ name: "Contact", link: "#" },
-		{ name: "Events", link: "#" },
+		{ name: "Home", link: "/" },
+		{ name: "About Us", link: "/about" },
+		{ name: "Services", link: "/contact" },
+		{ name: "Our Work", link: "/ourwork" },
+		{ name: "Contact", link: "/contact" },
+		{ name: "Events", link: "/events" },
 		{ name: "Search", link: "#" },
 	];
 
@@ -29,7 +30,7 @@ export default function Navbar() {
 			<div className="container mx-auto flex items-center justify-between px-8 py-6">
 				{/* Logo Section (Left) */}
 				<div className="flex items-center space-x-2">
-					<img src="path/to/trident-logo.png" alt="" className="h-10 w-auto" />
+					<img src={logo.src} alt="" className="h-20 w-auto pr-4 " />
 					<div>
 						<h1 className="text-lg font-bold tracking-wide text-primary-foreground">Weekend Knocks</h1>
 						<p className="text-xs font-medium tracking-wider text-muted-foreground">GAMING & ENTERTAINMENT</p>
