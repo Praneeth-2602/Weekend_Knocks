@@ -1,7 +1,14 @@
+import Navbar from '@/components/Navbar';
 export default function OurWorkPage() {
 
     return(
-        <h1>Our Works</h1>
+        <div>
+        <Navbar/>
+        <div className='flex justify-center items-center min-h-screen'>
+            <h1>Our Work</h1>
+            </div>
+    </div>
+    
     );
 
 }
