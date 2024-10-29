@@ -51,6 +51,20 @@ body {
 		--primary-color: #1e293b;
 		--secondary-color: #64748b;
 		--hover-color: #4f46e5;
+		--color-card-bg: #1e1e2e;
+		/* Dark card background */
+		--color-primary: #f97316;
+		/* Orange accent color */
+		--color-hover: #fb923c;
+		/* Lighter orange for hover */
+		--color-text-light: #ffffff;
+		/* White text color */
+		--color-overlay: rgba(0, 0, 0, 0.4);
+		/* Overlay for hover on image */
+		--color-primary: #ff4500;
+		/* Orange color for headings and accents */
+		--color-text-light: #f0f0f0;
+		/* Light color for text */
 	}
 
 	.dark {
