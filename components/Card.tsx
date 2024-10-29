@@ -11,9 +11,10 @@ interface EventCardProps {
     title: string;
     link: string;
     isCurrentEvent: boolean;
+    isPast: boolean;
 }
 
-export default function EventCard({ image, title, link, isCurrentEvent }: EventCardProps) {
+export default function EventCard({ image, title, link, isCurrentEvent, isPast }: EventCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
 
@@ -68,7 +69,7 @@ export default function EventCard({ image, title, link, isCurrentEvent }: EventC
                                 transition: 'transform 0.1s ease',
                             }}
                         >
-                           {isCurrentEvent ? 'Watch Live' : 'Enroll Now'}
+                           {isPast ? 'Details..' : isCurrentEvent ? 'Watch Live' : 'Enroll Now'}
                         </p>
                     </Link>
                 </div>

@@ -19,9 +19,9 @@ export default function EventsPage() {
                     </h2>
                     <div className="flex flex-wrap gap-8">
                         {/* Example Cards */}
-                        <Card title="Gaming Tournament" image={logo.src} link="https://example.com" isCurrentEvent={false}/>
-                        <Card title="Esports Workshop" image={logo.src} link="https://example.com" isCurrentEvent={false}/>
-                        <Card title="Community Meetup" image={logo.src} link="https://example.com"  isCurrentEvent={false}/>
+                        <Card title="Gaming Tournament" image={logo.src} link="https://example.com" isCurrentEvent={false} isPast={false}/>
+                        <Card title="Esports Workshop" image={logo.src} link="https://example.com" isCurrentEvent={false} isPast={false}/>
+                        <Card title="Community Meetup" image={logo.src} link="https://example.com"  isCurrentEvent={false} isPast={false}/>
                     </div>
                 </section>
 
@@ -32,8 +32,8 @@ export default function EventsPage() {
                     </h2>
                     <div className="flex flex-wrap gap-8">
                         {/* Example Cards */}
-                        <Card title="Ongoing Tournament" image={logo.src} link="https://example.com" isCurrentEvent={true}/>
-                        <Card title="Live Stream Event" image={logo.src} link="https://example.com" isCurrentEvent={true}/>
+                        <Card title="Ongoing Tournament" image={logo.src} link="https://example.com" isCurrentEvent={true} isPast={false}/>
+                        <Card title="Live Stream Event" image={logo.src} link="https://example.com" isCurrentEvent={true} isPast={false}/>
                     </div>
                 </section>
 
