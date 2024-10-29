@@ -20,17 +20,20 @@ const info = [
     {
         icon: <FaYoutube />,
         title: 'YouTube',
-        text: 'https://www.youtube.com/@WEEKENDKNOCKS'
+        link: 'https://www.youtube.com/@WEEKENDKNOCKS',
+        text: '@WEEKENDKNOCKS'
     },
     {
         icon: <FaEnvelope />,
         title: 'Email',
-        text: 'weekendknocks@gmail.com'
+        link: '#',
+        text: 'weekendknocks@wgmail.com'
     },
     {
         icon: <FaInstagram />,
         title: 'Instagram',
-        text: 'instagram.com/weekendknocks_'
+        link: 'https://www.instagram.com/weekendknocks_/',
+        text: '@weekendknocks_'
     }
 ];
 
@@ -72,7 +75,7 @@ function Contact() {
                                             </div>
                                             <div className="flex-1">
                                                 <p className="text-[var(--color-text-muted)]">{item.title}</p>
-                                                <h3 className="text-xl text-[var(--color-accent)]">{item.text}</h3>
+                                                <a href={item.link}><h3 className="text-xl text-[var(--color-accent)]">{item.text}</h3></a>
                                             </div>
                                         </li>
                                     )
