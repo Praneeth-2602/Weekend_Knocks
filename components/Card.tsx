@@ -3,7 +3,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 
 interface EventCardProps {
@@ -14,6 +14,7 @@ interface EventCardProps {
 
 export default function EventCard({ image, title, link }: EventCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
+    const [offset, setOffset] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         if (cardRef.current) {
@@ -33,10 +34,19 @@ export default function EventCard({ image, title, link }: EventCardProps) {
         };
     }, []);
 
+    const handleMouseMove = (event: React.MouseEvent) => {
+        const { clientX, clientY } = event;
+        const { left, top, width, height } = cardRef.current!.getBoundingClientRect();
+        const x = (clientX - left) / width;
+        const y = (clientY - top) / height;
+        setOffset({ x, y });
+    };
+
     return (
         <Card
             ref={cardRef}
             className="max-w-xs bg-[var(--color-card-bg)] shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
+            onMouseMove={handleMouseMove}
         >
             {/* Image Section */}
             <CardHeader className="relative h-48">
@@ -50,7 +60,13 @@ export default function EventCard({ image, title, link }: EventCardProps) {
                 {/* Overlay with Button */}
                 <div className="absolute inset-0 bg-[var(--color-overlay)] opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300 rounded-t-lg">
                     <Link href={link}>
-                        <p className="text-[var(--color-text-light)] bg-[var(--color-primary)] px-4 py-2 rounded-md font-semibold hover:bg-[var(--color-hover)] transition-colors">
+                        <p
+                            className="text-[var(--color-text-light)] bg-[var(--color-primary)] px-4 py-2 rounded-md font-semibold hover:bg-[var(--color-hover)] transition-colors"
+                            style={{
+                                transform: `translate(${offset.x * 10}px, ${offset.y * 10}px)`,
+                                transition: 'transform 0.1s ease',
+                            }}
+                        >
                             Enroll Now
                         </p>
                     </Link>
