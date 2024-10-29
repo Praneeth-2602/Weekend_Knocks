@@ -1,78 +1,111 @@
-
-import Navbar from '@/components/Navbar';
-import banner from '@/assets/banner2.jpg';
+import Navbar from "@/components/Navbar";
+import banner from "@/assets/banner2.jpg";
 import Footer from "@/components/Footer";
 
 export default function SignupPage() {
-
     return (
         <>
-        <Navbar/>
-        <section className="bg-white dark:bg-gray-900">
-        <div className="flex justify-center min-h-screen">
-        <div className="hidden bg-cover lg:block lg:w-3/5" style={{ backgroundImage: `url(${banner.src})` }}>
+            <Navbar />
+            <section className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 min-h-screen flex items-center justify-center pt-[10rem] pb-[5rem]">
+                <div className="container mx-auto flex flex-col lg:flex-row items-stretch justify-center shadow-2xl rounded-lg overflow-hidden max-w-5xl bg-white dark:bg-gray-800 h-[600px]">
+                    {/* Left Section: Image */}
+                    <div
+                        className="w-full lg:w-1/2 h-full bg-cover bg-center relative group flex-shrink-0"
+                        style={{ backgroundImage: `url(${banner.src})` }}
+                    >
+                        {/* Optional overlay */}
+                        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all duration-300"></div>
+                        <div className="flex items-center justify-center w-full h-full">
+                            <h2 className="text-white text-4xl font-semibold hidden lg:block tracking-wide group-hover:scale-105 transition-all duration-300">
+                                Join Weekend Knocks!
+                            </h2>
+                        </div>
+                    </div>
 
-            </div>
-    
-            <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
-                <div className="w-full">
-                    <h1 className="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
-                        Get your free account now.
-                    </h1>
-    
-                    <p className="mt-4 text-gray-500 dark:text-gray-400">
-                        Let’s get you all set up so you can verify your personal account and begin setting up your profile.
-                    </p>
-    
-                 
-    
-                    <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-                            <input type="text" placeholder="John" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last name</label>
-                            <input type="text" placeholder="Snow" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone number</label>
-                            <input type="text" placeholder="XXX-XX-XXXX-XXX" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                            <input type="email" placeholder="johnsnow@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-                            <input type="password" placeholder="Enter your password" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
-                            <input type="password" placeholder="Enter your password" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-    
-                        <button
-                            className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            <span>Sign Up </span>
-    
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </form>
+                    {/* Right Section: Signup Form */}
+                    <div className="w-full lg:w-1/2 p-8 lg:p-12 bg-white dark:bg-gray-800 flex flex-col items-center">
+                        <h1 className="text-3xl font-bold text-gray-800 dark:text-white tracking-wide text-center">
+                            Create Your Free Account
+                        </h1>
+                        <p className="mt-2 text-gray-600 dark:text-gray-400 text-center">
+                            Sign up to access exclusive content and stay updated.
+                        </p>
+
+                        <form className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 w-full">
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    First Name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="John"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    Last Name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Doe"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="XXX-XXX-XXXX"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="johndoe@example.com"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="••••••••"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">
+                                    Confirm Password
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="••••••••"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <button className="w-full col-span-1 sm:col-span-2 mt-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:ring focus:ring-blue-300 focus:outline-none shadow-lg transition duration-300">
+                                Sign Up
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <Footer/>
-    </>
+            </section>
+            <Footer />
+        </>
     );
 }
