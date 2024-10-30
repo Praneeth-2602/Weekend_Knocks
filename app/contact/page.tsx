@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import {
     Select,
     SelectContent,
@@ -15,22 +14,26 @@ import {
 } from "@/components/ui/select";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { FaEnvelope, FaYoutube, FaInstagram } from 'react-icons/fa';
 
 const info = [
     {
-        icon: <FaPhoneAlt />,
-        title: 'Phone',
-        text: '(+91) 85550 33466'
+        icon: <FaYoutube />,
+        title: 'YouTube',
+        link: 'https://www.youtube.com/@WEEKENDKNOCKS',
+        text: '@WEEKENDKNOCKS'
     },
     {
         icon: <FaEnvelope />,
         title: 'Email',
-        text: 'praneeth.palugula@gmail.com'
+        link: '#',
+        text: 'weekendknocks@wgmail.com'
     },
     {
-        icon: <FaMapMarkerAlt />,
-        title: 'Address',
-        text: 'Hyderabad, India'
+        icon: <FaInstagram />,
+        title: 'Instagram',
+        link: 'https://www.instagram.com/weekendknocks_/',
+        text: '@weekendknocks_'
     }
 ];
 
@@ -46,29 +49,14 @@ function Contact() {
                             <form className="flex flex-col gap-6 p-10 bg-[var(--color-secondary-bg)] rounded-xl shadow-md transition-all duration-300">
                                 <h3 className="text-4xl text-[var(--color-accent)] font-bold">Let's work together</h3>
                                 <p className="text-[var(--color-text-muted)]">
-                                    I'm always open to new projects, collaborations, or employment opportunities. Let's connect.
-                                </p>
+                                    Got a Technical issue? Want to send feedback? Need details about our Business plan? Let us know.                                         </p>
                                 {/* Input Fields */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <Input type="text" placeholder="Firstname" />
-                                    <Input type="text" placeholder="Lastname" />
-                                    <Input type="email" placeholder="Email" />
-                                    <Input type="tel" placeholder="Phone" />
+                                   
+                                    <Input type="email" placeholder="Email" /> 
+                                    <Input type="text" placeholder="Subject" />
                                 </div>
-                                {/* Service Select */}
-                                <Select>
-                                    <SelectTrigger className="w-full">
-                                        <SelectValue placeholder="Select a service" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectLabel>Select a service</SelectLabel>
-                                            <SelectItem value="est">Web Development</SelectItem>
-                                            <SelectItem value="cst">UI/UX Design</SelectItem>
-                                            <SelectItem value="mst">Logo Design</SelectItem>
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
+                               
                                 {/* Message Textarea */}
                                 <Textarea className="h-40" placeholder="Type your message here" />
                                 {/* Send Button */}
@@ -87,7 +75,7 @@ function Contact() {
                                             </div>
                                             <div className="flex-1">
                                                 <p className="text-[var(--color-text-muted)]">{item.title}</p>
-                                                <h3 className="text-xl text-[var(--color-accent)]">{item.text}</h3>
+                                                <a href={item.link}><h3 className="text-xl text-[var(--color-accent)]">{item.text}</h3></a>
                                             </div>
                                         </li>
                                     )
