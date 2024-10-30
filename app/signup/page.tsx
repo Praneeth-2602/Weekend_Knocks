@@ -29,16 +29,27 @@ export default function SignupPage() {
 
         // Prepare the payload for signup
         const userPayload = {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
+            firstname: formData.firstName,
+            lastname: formData.lastName,
             phone: formData.phoneNumber,
             email: formData.email,
             password: formData.password,
         };
-
         try {
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/`, userPayload);
-            alert("Signup successful!");  // Or redirect as needed
+            console.log(formData);
+            
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/`,
+                userPayload,
+                {
+                    headers: {
+                        'Content-Type': 'application/json', // Set the content type
+                        // Add any other headers here, e.g., Authorization: `Bearer ${token}`
+                    },
+                }
+            );
+        
+            alert("Signup successful!");
             router.push('/login');  // Redirect to login page
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -47,6 +58,7 @@ export default function SignupPage() {
                 setError("Signup failed.");
             }
         }
+        
     };
 
     return (
