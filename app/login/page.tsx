@@ -35,8 +35,8 @@ export default function LoginPage() {
 
                     <form className="mt-4">
                         <div>
-                            <label htmlFor="username" className="block text-sm text-gray-700 dark:text-gray-200">Username</label>
-                            <input type="text" className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <label htmlFor="email" className="block text-sm text-gray-700 dark:text-gray-200">Email</label>
+                            <input type="email" className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
 
                         <div className="mt-4">
