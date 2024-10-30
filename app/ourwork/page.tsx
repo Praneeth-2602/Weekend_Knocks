@@ -19,7 +19,7 @@ export default function OurWorkPage() {
         <div>
             <Navbar />
             <div className='flex justify-center items-center min-h-screen'>
-                <div className="container mx-auto mt-[8em] p-8">
+                <div className="container mx-auto mt-[1em] p-8">
                     {/* Main Events Page Heading */}
                     <h1 className="text-4xl font-bold mb-10">Our Journey</h1>
 
