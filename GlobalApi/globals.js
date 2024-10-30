@@ -1,143 +1,129 @@
 // file for all the global api calls to the database
 import axios from 'axios';
-import poll from '../models/poll';
+import poll from '../models/events';
 import user from '../models/user';
 import mongoose from 'mongoose';
 
 require('dotenv').config();
 mongoose.connect(process.env.MONGO_URL);
 
-export const getPolls = async () => {
-    try {
-        const polls = await poll.find();
-        return polls;
-    } catch (error) {
-        throw error;
+const getEventDetails = (req, res) => {
+    events.find({}, (err, events) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(events);
     }
+    );
 }
 
-export const getPollById = async (id
+const getEventDetailsById = (req, res) => {
+    events.findById(req.params.id, (err, events) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(events);
+    }
+    );
+}
+
+const createEvent = (req, res) => {
+    let newEvent = new events(req.body);
+    newEvent.save((err, events) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(events);
+    });
+}
+
+const updateEvent = (req, res) => {
+    events.findOneAndUpdate({ _id: req
+        .params
+        .id
+    }, req.body, { new: true }, (err, events) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(events);
+    }
+    );
+}
+
+const deleteEvent = (req, res) => {
+    events.remove({ _id: req.params.id }, (err, events) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json({ message: 'Successfully deleted event' });
+    }
+    );
+}
+
+const getUserDetails = (req, res) => {
+    user.find({}, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(user);
+    }
+    );
+}
+
+const getUserDetailsById = (req, res
 ) => {
-    try {
-        const poll = await poll.findById(id);
-        return poll;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const createPoll = async (pollData) => {
-    try {
-        const createdPoll = await poll.create(pollData);
-        return createdPoll;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const updatePoll = async (id, pollData) => {
-    try {
-        const poll = await poll.findById(id);
-        if (poll) {
-            await poll.update(pollData);
-            return poll;
+    user.findById(req.params.id, (err, user) => {
+        if (err) {
+            res.send(err);
         }
-        return null;
-    } catch (error) {
-        throw error;
+        res.json(user);
     }
-}   
+    );
+}
 
-export const deletePoll = async (id) => {
-    try {
-        const poll = await poll.findById(id);
-        if (poll) {
-            await poll.remove();
-            return poll;
+const createUser = (req, res) => {
+    let newUser = new user(req.body);
+    newUser.save((err, user) => {
+        if (err) {
+            res.send(err);
         }
-        return null;
-    } catch (error) {
-        throw error;
-    }
+        res.json(user);
+    });
 }
 
-export const getUsers = async () => {
-    try {
-        const users = await user.find();
-        return users;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const getUserById = async (id) => {
-    try {
-        const user = await user.findById(id);
-        return user;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const createUser = async (userData) => {
-    try {
-        const createdUser = await user.create(userData);
-        return createdUser;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const updateUser = async (id, userData) => {
-    try {
-        const user = await user.findById(id);
-        if (user) {
-            await user.update(userData);
-            return user;
-        }
-        return null;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const deleteUser = async (id) => {
-    try {
-        const user = await user.findById(id);
-        if (user) {
-            await user.remove();
-            return user;
-        }
-        return null;
-    } catch (error) {
-        throw error;
-    }
-}
-
-export const login = async (userData) => {
-    try {
-        const user = await user.findOne({ email: userData.email });
-        if (user) {
-            if (user.password === userData.password) {
-                return user;
+const updateUser = (req, res) => {
+    user.findOneAndUpdate({ _id: req
+        .params
+        .id
+    }, req
+        .body, { new: true }, (err, user) => {
+            if (err) {
+                res.send(err);
             }
+            res.json(user);
         }
-        return null;
-    } catch (error) {
-        throw error;
-    }
+    );
 }
 
-export const register = async (userData) => {
-    try {
-        const user = await user.findOne({ email: userData.email });
-        if (!user) {
-            const createdUser = await user.create(userData);
-            return createdUser;
+const deleteUser = (req, res) => {
+    user.remove({ _id: req.params.id }, (err, user) => {
+        if (err) {
+            res.send(err);
         }
-        return null;
+        res.json({ message: 'Successfully deleted user' });
     }
-    catch (error) {
-        throw error;
-    }
+    );
+}
+
+export default global = {
+    getEventDetails,
+    getEventDetailsById,
+    createEvent,
+    updateEvent,
+    deleteEvent,
+    getUserDetails,
+    getUserDetailsById,
+    createUser,
+    updateUser,
+    deleteUser
 }

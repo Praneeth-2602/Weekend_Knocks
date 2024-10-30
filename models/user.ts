@@ -1,19 +1,30 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+import { Schema, model, Document } from 'mongoose';
 
-mongoose.connect(process.env.MONGO_URL);
+interface IUser extends Document {
+    username: string;
+    email: string;
+    password: string;
+    createdAt: Date;
+    updatedAt: Date;
+    favoriteGames: string[];
+    rank: string;
+}
 
-const userSchema = mongoose.Schema({
-    btid: String,
-    name: String,
-    email: String,
-    password: String,
-    role: { type: String, default: "student" },
-    approval: { type: Number, default: 0 },
-    chosen_option: { type: String, default: "" },
-    d_optn: { type: String, default: "" },
-    googleId: { type: String, default: null },
-    provider: { type: String, default: "local" } // Track whether the user is logged in with Google or credentials.
+const UserSchema = new Schema<IUser>({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
+    favoriteGames: { type: [String], default: [] },
+    rank: { type: String, default: 'Unranked' }
 });
 
-module.exports = mongoose.model('user', userSchema);
+UserSchema.pre('save', function (next) {
+    this.updatedAt = new Date();
+    next();
+});
+
+const User = model<IUser>('User', UserSchema);
+
+export default User;

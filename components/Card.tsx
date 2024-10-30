@@ -69,7 +69,7 @@ export default function EventCard({ image, title, link, isCurrentEvent, isPast }
                                 transition: 'transform 0.1s ease',
                             }}
                         >
-                           {isPast ? 'Details..' : isCurrentEvent ? 'Watch Live' : 'Enroll Now'}
+                            {isPast ? 'Details..' : isCurrentEvent ? 'Watch Live' : 'Enroll Now'}
                         </p>
                     </Link>
                 </div>
