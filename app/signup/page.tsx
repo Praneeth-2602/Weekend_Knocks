@@ -5,6 +5,7 @@ import banner from "@/assets/banner2.jpg";
 import Footer from "@/components/Footer";
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function SignupPage() {
     const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function SignupPage() {
         confirmPassword: ''
     });
     const [error, setError] = useState('');
+    const router = useRouter();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,6 +39,7 @@ export default function SignupPage() {
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/`, userPayload);
             alert("Signup successful!");  // Or redirect as needed
+            router.push('/login');  // Redirect to login page
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 setError(error.response?.data?.detail || "Signup failed.");
