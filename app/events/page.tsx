@@ -36,18 +36,7 @@ export default function EventsPage() {
                     </div>
                 </section>
 
-                {/* Past Events Section */}
-                <section className="mb-16">
-                    <h2 className="text-3xl font-extrabold mb-4 text-[var(--color-primary)] border-b-4 border-[var(--color-primary)] pb-2">
-                        Past Events
-                    </h2>
-                    <div className="flex flex-wrap gap-8">
-                        {/* Example Cards */}
-                        <Card title="Gaming Fest 2023" image={logo.src} link="https://example.com" />
-                        <Card title="Strategy Workshop" image={logo.src} link="https://example.com" />
-                        <Card title="Skill Showdown" image={logo.src} link="https://example.com" />
-                    </div>
-                </section>
+               
             </div>
             <Footer />
         </div>
