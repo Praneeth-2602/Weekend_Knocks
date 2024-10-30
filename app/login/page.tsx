@@ -1,13 +1,47 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import axios from 'axios';
 import logo from '@/assets/logo.png';
 import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
 import logobg from '@/assets/login_bg.jpg';
+import dotenv from 'dotenv';
 
 export default function LoginPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    dotenv.config();
+    const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+    const handleLogin = async (event: { preventDefault: () => void; }) => {
+        event.preventDefault();  // Prevents page refresh on form submission
+        setError('');  // Reset any previous errors
+
+        try {
+            const response = await axios.post(`${baseURL}/login/`, {
+                email,
+                password
+            });
+
+            // Store the token in localStorage
+            localStorage.setItem('token', response.data.access_token);
+            alert("Login successful!");
+            // Redirect or do additional steps post-login as needed
+
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                setError(error.response.data?.detail || "Login failed");
+            } else {
+                setError("Login failed");
+            }
+        }
+    };
+
     return (
         <div>
-            {/* Navbar */}
             <Navbar />
 
             {/* Background with blur effect */}
@@ -16,36 +50,49 @@ export default function LoginPage() {
                     backgroundImage: `url(${logobg.src})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    position: 'fixed', // Fixes background to viewport
+                    position: 'fixed',
                     top: 0,
                     left: 0,
                     right: 0,
                     bottom: 0,
                     filter: 'blur(8px)',
-                    zIndex: -1, // Background behind content
+                    zIndex: -1,
                 }}
             ></div>
 
-            {/* Form section */}
-            <div className="flex justify-center items-center min-h-screen px-4 pt-20 pb-8">
+            <div className="flex justify-center items-center min-h-screen px-4 pt-20 pb-8 my-[3em]">
                 <div className="w-full max-w-sm p-6 m-auto bg-white rounded-lg shadow-lg dark:bg-gray-800">
                     <div className="flex justify-center mx-auto mb-6">
                         <img src={logo.src} alt="Logo" className="w-20 h-20" />
                     </div>
 
-                    <form className="mt-4">
+                    <form className="mt-4" onSubmit={handleLogin}>
                         <div>
                             <label htmlFor="email" className="block text-sm text-gray-700 dark:text-gray-200">Email</label>
-                            <input type="email" className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40"
+                            />
                         </div>
 
                         <div className="mt-4">
                             <label htmlFor="password" className="block text-sm text-gray-700 dark:text-gray-200">Password</label>
-                            <input type="password" className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40"
+                            />
                         </div>
 
+                        {error && <div className="mt-2 text-red-600 text-sm">{error}</div>}
+
                         <div className="mt-6">
-                            <button className="w-full px-6 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 focus:bg-blue-500 focus:outline-none">
+                            <button type="submit" className="w-full px-6 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 focus:bg-blue-500 focus:outline-none">
                                 Sign In
                             </button>
                         </div>
@@ -71,7 +118,6 @@ export default function LoginPage() {
                 </div>
             </div>
 
-            {/* Footer */}
             <Footer />
         </div>
     );
