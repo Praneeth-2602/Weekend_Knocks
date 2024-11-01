@@ -31,7 +31,7 @@ export default function EventCard({ image, title, link, isCurrentEvent, isPast }
 
         return () => {
             if (cardRef.current) {
-                VanillaTilt.init(cardRef.current, null); // Clean up to prevent memory leaks
+                VanillaTilt.init(cardRef.current, undefined); // Clean up to prevent memory leaks
             }
         };
     }, []);
