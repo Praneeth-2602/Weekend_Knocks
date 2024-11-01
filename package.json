@@ -35,7 +35,8 @@
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
-    "vanilla-tilt": "^1.8.1"
+    "vanilla-tilt": "^1.8.1",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/node": "^20",
