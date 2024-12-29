@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a bug or unexpected behavior.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please provide the details below.
+  - type: input
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clearly describe the issue you encountered.
+      placeholder: A short summary of the bug
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a clear sequence of steps to reproduce the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: Explain what you expected to happen.
+    validations:
+      required: true
