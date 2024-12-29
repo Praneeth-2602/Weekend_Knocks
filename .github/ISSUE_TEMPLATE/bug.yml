@@ -19,13 +19,6 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: "Steps to Reproduce"
-      description: "Provide detailed steps to reproduce the issue."
-      placeholder: "1. Go to...\n2. Click on...\n3. See error"
-    validations:
-      required: true
-  - type: textarea
-    attributes:
       label: "Expected Behavior"
       description: "What you expected to happen instead."
       placeholder: "Explain the desired outcome."
@@ -38,15 +31,11 @@ body:
       placeholder: "Upload or describe here."
   - type: textarea
     attributes:
-      label: "Environment Details"
-      description: "Provide information about your setup, like OS, browser, or version."
-      placeholder: "E.g., Windows 11, Chrome 108, Node.js v16.x"
-  - type: checkboxes
-    attributes:
       label: "Acknowledgements"
       description: "Please confirm the following:"
       options:
         - label: "I agree to follow this project's Code of Conduct."
           required: true
+        - label: "I'm a SWOC'24 contributor"
         - label: "I have read the contribution guidelines."
         - label: "I want to work on this issue."
