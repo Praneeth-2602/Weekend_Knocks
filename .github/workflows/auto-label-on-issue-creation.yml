@@ -21,8 +21,8 @@ jobs:
           # Define the labels based on the template
           if [[ "$TEMPLATE" == *"bug"* ]]; then
             LABELS=("bug" "under-review")
-          elif [[ "$TEMPLATE" == *"feature-request"* ]]; then
-            LABELS=("feature-request" "under-review")
+          elif [[ "$TEMPLATE" == *"feature"* ]]; then
+            LABELS=("feature" "under-review")
           elif [[ "$TEMPLATE" == *"documentation"* ]]; then
             LABELS=("documentation" "under-review")
           else
