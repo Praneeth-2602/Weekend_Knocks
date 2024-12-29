@@ -1,0 +1,34 @@
+name: "📚 Documentation Update"
+description: "Propose updates or improvements to the documentation"
+title: "DOC:"
+labels: ["documentation", "needs triage"]
+body:
+  - type: textarea
+    attributes:
+      label: "Issue with Existing Documentation"
+      description: "Describe what is incorrect, missing, or unclear in the current documentation."
+      placeholder: "E.g., outdated setup instructions, unclear steps, missing details..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Proposed Changes"
+      description: "Outline the changes you suggest, such as additions, removals, or edits."
+      placeholder: "E.g., Add details about installation, clarify API usage, etc."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Supporting Screenshots or Examples (Optional)"
+      description: "Include screenshots or code snippets to clarify your proposal."
+      placeholder: "Attach screenshots, if applicable."
+  - type: checkboxes
+    attributes:
+      label: "Acknowledgements"
+      description: "Please confirm the following:"
+      options:
+        - label: "I agree to follow this project's Code of Conduct."
+          required: true
+        - label: "I'm a SWOC'24 contributor"
+        - label: "I have read the contribution guidelines."
+        - label: "I want to work on this issue."
