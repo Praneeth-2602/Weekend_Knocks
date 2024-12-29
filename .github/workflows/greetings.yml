@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Welcome to Weekend Knocks! 🎉\nThanks for opening your first issue with us. We appreciate your input, and we'll take a look as soon as possible.\nYour contributions are what help this project grow! 😊"
+        pr-message: "Amazing job submitting your first pull request to Weekend Knocks! 🙌🎉\nWe’re excited to review your changes and appreciate your contribution.\nKeep up the great work, and thank you for being a part of this project! 🚀"
