@@ -45,7 +45,7 @@ export default function Navbar() {
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<div className="container mx-auto flex items-center justify-between px-8 py-6">
+			<div className="container mx-auto flex items-center justify-between px-4 xl:px-8 py-6">
 				{/* Logo Section (Left) */}
 				<div className="flex items-center space-x-2">
 					<img src={logo.src} alt="" className="h-20 w-auto pr-4 " />
@@ -58,8 +58,8 @@ export default function Navbar() {
 				{/* Navigation Links (Center) */}
 				<ul className={`flex space-x-6 text-sm font-semibold text-primary-foreground transition-all duration-1000 ${isHovered && isScrolled ? "gap-8" : ""
 					} ${isScrolled && !isHovered ? "gap-6" : ""
-					} ${!isScrolled && isHovered ? "gap-10" : ""
-					} ${!isScrolled && !isHovered ? "gap-12" : ""
+					} ${!isScrolled && isHovered ? "gap-8" : ""
+					} ${!isScrolled && !isHovered ? "gap-10" : ""
 					}`
 				}>
 					{navItems.map((item, index) => (
