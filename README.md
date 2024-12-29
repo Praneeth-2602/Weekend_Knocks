@@ -71,6 +71,8 @@ We welcome contributions to **Weekend Knocks**! Here's how you can get started:
    ```  
 4. Push to your fork and create a pull request.  
 
+**Before contributing, please take a moment to read our [Contributing Guidelines](CONTRIBUTING.md).**  
+
 ### Code of Conduct  
 Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand our community expectations.  
 
@@ -93,15 +95,10 @@ Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand our communit
 
 ---
 
-## License 📜  
-This project is licensed under the [MIT License](LICENSE).  
-
----
-
 ## Community and Support 💬  
 Join our community on Discord: [Weekend Knocks Discord](https://discord.gg/your-invite-link)  
 
-If you have any questions or suggestions, feel free to open an issue or contact us at: **your-email@example.com**  
+If you have any questions or suggestions, feel free to open an issue. 
 
 ---
 
