@@ -18,12 +18,12 @@ body:
     validations:
       required: true
   - type: textarea
-  attributes:
-    label: "Expected Behavior and Additional Context"
-    description: "Describe the expected behavior, and if applicable, attach any relevant screenshots or logs to provide more context."
-    placeholder: "Explain what you expected to happen and include additional context like screenshots or logs if necessary."
-  validations:
-    required: true
+    attributes:
+      label: "Expected Behavior and Additional Context"
+      description: "Describe the expected behavior, and if applicable, attach any relevant screenshots or logs to provide more context."
+      placeholder: "Explain what you expected to happen and include additional context like screenshots or logs if necessary."
+    validations:
+      required: true
   - type: checkboxes
     attributes:
       label: "Acknowledgements"
