@@ -18,24 +18,19 @@ body:
     validations:
       required: true
   - type: textarea
-    attributes:
-      label: "Expected Behavior"
-      description: "What you expected to happen instead."
-      placeholder: "Explain the desired outcome."
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: "Screenshots or Logs (if applicable)"
-      description: "Attach any relevant screenshots or logs to provide more context."
-      placeholder: "Upload or describe here."
-  - type: textarea
+  attributes:
+    label: "Expected Behavior and Additional Context"
+    description: "Describe the expected behavior, and if applicable, attach any relevant screenshots or logs to provide more context."
+    placeholder: "Explain what you expected to happen and include additional context like screenshots or logs if necessary."
+  validations:
+    required: true
+  - type: checkboxes
     attributes:
       label: "Acknowledgements"
       description: "Please confirm the following:"
       options:
         - label: "I agree to follow this project's Code of Conduct."
           required: true
-        - label: "I'm a SWOC'24 contributor"
+        - label: "I'm a SWOC'24 contributor."
         - label: "I have read the contribution guidelines."
         - label: "I want to work on this issue."
