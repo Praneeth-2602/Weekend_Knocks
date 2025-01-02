@@ -48,11 +48,15 @@ export default function Navbar() {
 			<div className="container mx-auto flex items-center justify-between px-8 py-6">
 				{/* Logo Section (Left) */}
 				<div className="flex items-center space-x-2">
-					<img src={logo.src} alt="" className="h-20 w-auto pr-4 " />
+				<a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
+    <img src={logo.src} alt="" className="h-20 w-auto pr-4 " />
+               </a>
 					<div>
-						<h1 className="text-lg font-bold tracking-wide text-primary-foreground">Weekend Knocks</h1>
-						<p className="text-xs font-medium tracking-wider text-muted-foreground">GAMING & ENTERTAINMENT</p>
-					</div>
+                     <a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
+                     <h1 className="text-lg font-bold tracking-wide text-primary-foreground">Weekend Knocks</h1>
+                     <p className="text-xs font-medium tracking-wider text-muted-foreground">GAMING & ENTERTAINMENT</p>
+                     </a>
+                </div>
 				</div>
 
 				{/* Navigation Links (Center) */}
