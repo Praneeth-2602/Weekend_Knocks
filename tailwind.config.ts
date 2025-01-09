@@ -3,12 +3,29 @@ import type { Config } from "tailwindcss";
 const config: Config = {
 	darkMode: ["class"],
 	content: [
+		"./src/**/*.{js,jsx,ts,tsx}",
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
 		extend: {
+     
+			keyframes: {
+				
+				fadeInOut: {
+					'0%, 100%': { opacity: '0' },
+					'50%': { opacity: '1' },
+				},
+				'bounce-slow': {
+					'0%, 100%': { transform: 'translateY(0)' }, 
+					'50%': { transform: 'translateY(-10px)' }, 
+				},
+			},
+			animation: {
+				fadeInOut: 'fadeInOut 5s infinite ease-in-out',
+				'bounce-slow': 'bounce-slow 2s infinite ease-in-out',
+			},
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
