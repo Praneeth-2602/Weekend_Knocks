@@ -1,17 +1,23 @@
 'use client';
-
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 
 export default function Navbar() {
-	const [isHovered, setIsHovered] = useState(false);
-	const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-	const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
 
-	const handleMouseEnter = () => setIsHovered(true);
-	const handleMouseLeave = () => setIsHovered(false);
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 50);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	const navItems = [
 		{ name: "Home", link: "/" },
@@ -23,57 +29,40 @@ export default function Navbar() {
 		{ name: "Search", link: "#" },
 	];
 
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > 50) {
-				setIsScrolled(true);
-			} else {
-				setIsScrolled(false);
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
-
 	return (
 		<nav
-			className={`w-full fixed top-0 z-10 transition-all duration-300 ${isScrolled ? "bg-[#1c1c1c] bg-opacity-30 backdrop-blur-lg border border-white border-opacity-10" : "bg-background bg-opacity-90"
-				}`}
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
+			className={`w-full fixed top-0 z-10 transition-all duration-300 ${
+				isScrolled ? "bg-[#1c1c1c] bg-opacity-80 backdrop-blur-lg border-b border-white border-opacity-10 shadow-md" : "bg-background"
+			}`}
 		>
-			<div className="container mx-auto flex items-center justify-between px-8 py-6">
-				{/* Logo Section (Left) */}
-				<div className="flex items-center space-x-2">
-				<a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
-    <img src={logo.src} alt="" className="h-20 w-auto pr-4 " />
-               </a>
+			<div className="container mx-auto flex items-center justify-between px-6 md:px-10 py-4 md:py-6">
+				{/* Logo Section */}
+				<div className="flex items-center space-x-3">
+					<a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
+						<img src={logo.src} alt="Logo" className="h-14 md:h-16 w-auto" />
+					</a>
 					<div>
-                     <a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
-                     <h1 className="text-lg font-bold tracking-wide text-primary-foreground">Weekend Knocks</h1>
-                     <p className="text-xs font-medium tracking-wider text-muted-foreground">GAMING & ENTERTAINMENT</p>
-                     </a>
-                </div>
+						<a href="https://weekend-knocks.netlify.app/" target="_blank" rel="noopener noreferrer">
+							<h1 className="text-lg md:text-xl font-bold text-primary-foreground">
+								Weekend Knocks
+							</h1>
+							<p className="text-xs md:text-sm font-medium text-muted-foreground">
+								GAMING & ENTERTAINMENT
+							</p>
+						</a>
+					</div>
 				</div>
 
-				{/* Navigation Links (Center) */}
-				<ul className={`flex space-x-6 text-sm font-semibold text-primary-foreground transition-all duration-1000 ${isHovered && isScrolled ? "gap-8" : ""
-					} ${isScrolled && !isHovered ? "gap-6" : ""
-					} ${!isScrolled && isHovered ? "gap-10" : ""
-					} ${!isScrolled && !isHovered ? "gap-12" : ""
-					}`
-				}>
+				{/* Navigation Links */}
+				<ul className="hidden md:flex space-x-6 text-sm md:text-base font-semibold text-primary-foreground">
 					{navItems.map((item, index) => (
 						<li key={index}>
 							<Link href={item.link}>
 								<motion.span
-									initial={{ y: -10 }} // Start from above
-									whileHover={{ y: 5 }} // Move down on hover
+									initial={{ y: 0 }}
+									whileHover={{ y: -3 }}
 									transition={{ type: "spring", stiffness: 300 }}
-									className="hover:text-primary transition-all duration-300 cursor-pointer"
+									className="hover:text-primary hover:underline underline-offset-4 decoration-primary transition duration-300 cursor-pointer"
 								>
 									{item.name}
 								</motion.span>
@@ -82,17 +71,17 @@ export default function Navbar() {
 					))}
 				</ul>
 
-				{/* Buttons (Right) with Glow Effect */}
+				{/* Buttons Section */}
 				<div className="flex space-x-4">
 					{isLoggedIn ? (
 						<>
 							<Link href="/account">
-								<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
+								<button className="px-4 py-2 text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-shadow duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 									My Account
 								</button>
 							</Link>
 							<Link href="/logout">
-								<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
+								<button className="px-4 py-2 text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-shadow duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 									Logout
 								</button>
 							</Link>
@@ -100,12 +89,12 @@ export default function Navbar() {
 					) : (
 						<>
 							<Link href="/login">
-								<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
+								<button className="px-4 py-2 text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-shadow duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 									Login
 								</button>
 							</Link>
 							<Link href="/signup">
-								<button className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
+								<button className="px-4 py-2 text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-white rounded-md font-semibold transition-shadow duration-300 shadow-lg hover:shadow-[0px_0px_20px_rgba(255,255,255,0.5)]">
 									Signup
 								</button>
 							</Link>
