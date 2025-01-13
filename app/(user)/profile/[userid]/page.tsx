@@ -1,10 +1,11 @@
+// pages/user/[userid].tsx
 'use client'
 import { useEffect, useState } from 'react';
 import ProfileCard from '@/components/ProfileCard';
 import TournamentStats from '@/components/TournamentStats';
 import LiveStreamLink from '@/components/LiveStreamLink';
 import { useParams } from 'next/navigation';
-
+import TournamentChart from '@/components/Tournamentchart';
 // Define types for user data
 interface UserData {
   name: string;
@@ -20,7 +21,7 @@ interface UserData {
 
 const Page = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
-  const {userid} = useParams();
+  const { userid } = useParams();
   console.log(userid);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Page = () => {
           matchStatus: "Live",
           streamLink: "https://www.twitch.tv/some_stream",
         };
-        
+
         // Simulate a delay for fetching data
         setTimeout(() => {
           setUserData(mockData); // Store mock data in the state
@@ -56,7 +57,7 @@ const Page = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white p-4">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white p-4 bg-animated-gradient animate-gradient-animation">
       <div className="container mx-auto space-y-8">
         {/* Profile Header */}
         <ProfileCard
@@ -64,6 +65,26 @@ const Page = () => {
           email={userData.email}
           avatarUrl={userData.avatarUrl}
         />
+
+        <div className='flex flex-row gap-10 justify-center'>
+          <div className='hover:scale-110 transition-all' >
+            {/* Participated Tournaments Chart */}
+
+            <TournamentChart
+              labels={['January', 'February', 'March', 'April']} // Pass the labels as props
+              data={[10, 15, 20, 25]} // Pass the data for participated tournaments as props
+            />
+          </div>
+          <div className='hover:scale-110 transition-all' >
+            {/* Won Tournaments Chart */}
+            <TournamentChart
+              labels={['January', 'February', 'March', 'April']} // Pass the labels as props
+              data={[5, 7, 10, 12]} // Pass the data for won tournaments as props
+            />
+
+          </div>
+
+        </div>
 
         {/* Tournament Stats Section */}
         <TournamentStats
