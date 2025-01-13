@@ -205,7 +205,7 @@ export default function LoginPage() {
                     )}
 
                     <div className="mt-8 text-center text-gray-700 dark:text-gray-300">
-                        Don't have an account? <a href="#" className="text-sm font-medium text-primary hover:underline"
+                        Don't have an account? <a href="https://weekend-knocks.netlify.app/signup" className="text-sm font-medium text-primary hover:underline"
                         >Create One</a>
                     </div>
                 </div>
