@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import logo from '@/assets/logo.png';
 import logobg from '@/assets/login_bg.jpg';
 import dotenv from 'dotenv';
+import Link from "next/Link";
 
 dotenv.config();
 const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -205,8 +206,7 @@ export default function LoginPage() {
                     )}
 
                     <div className="mt-8 text-center text-gray-700 dark:text-gray-300">
-                        Don't have an account? <a href="#" className="text-sm font-medium text-primary hover:underline"
-                        >Create One</a>
+                        Don't have an account? <Link href='/signup' className="text-sm font-medium text-primary hover:underline">Create One</Link>
                     </div>
                 </div>
             </div>
