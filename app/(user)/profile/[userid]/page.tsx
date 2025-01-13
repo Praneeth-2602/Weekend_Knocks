@@ -6,6 +6,7 @@ import TournamentStats from '@/components/TournamentStats';
 import LiveStreamLink from '@/components/LiveStreamLink';
 import { useParams } from 'next/navigation';
 import TournamentChart from '@/components/Tournamentchart';
+import Navbar from '@/components/Navbar';
 // Define types for user data
 interface UserData {
   name: string;
@@ -58,7 +59,8 @@ const Page = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white p-4 bg-animated-gradient animate-gradient-animation">
-      <div className="container mx-auto space-y-8">
+      <Navbar/>
+      <div className="container mt-32 mx-auto space-y-8">
         {/* Profile Header */}
         <ProfileCard
           name={userData.name}
