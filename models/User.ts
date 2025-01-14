@@ -1,6 +1,6 @@
 import { userDb } from "@/lib/db";
 import { Schema } from "mongoose";
-
+import mongoose from "mongoose"
 interface IUser extends Schema {
     name: string,
     email: string,
@@ -14,7 +14,6 @@ const userSchema = new Schema({
     password:String,
     mobile: Number
 })
-
-const User = userDb?.model<IUser>('User',userSchema)
+const User = userDb?.models.User<IUser> || userDb?.model<IUser>('User',userSchema)
 export type {IUser}
 export default User
