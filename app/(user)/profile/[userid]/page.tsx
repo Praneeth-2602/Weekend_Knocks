@@ -1,4 +1,3 @@
-// pages/user/[userid].tsx
 'use client'
 import { useEffect, useState } from 'react';
 import ProfileCard from '@/components/ProfileCard';
@@ -7,7 +6,7 @@ import LiveStreamLink from '@/components/LiveStreamLink';
 import { useParams } from 'next/navigation';
 import TournamentChart from '@/components/Tournamentchart';
 import Navbar from '@/components/Navbar';
-// Define types for user data
+
 interface UserData {
   name: string;
   email: string;
@@ -23,12 +22,10 @@ interface UserData {
 const Page = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const { userid } = useParams();
-  console.log(userid);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Mock API call simulation with dummy data
         const mockData: UserData = {
           name: "John Doe",
           email: "john.doe@example.com",
@@ -40,11 +37,7 @@ const Page = () => {
           matchStatus: "Live",
           streamLink: "https://www.twitch.tv/some_stream",
         };
-
-        // Simulate a delay for fetching data
-        setTimeout(() => {
-          setUserData(mockData); // Store mock data in the state
-        }, 1000);
+        setTimeout(() => setUserData(mockData), 1000);
       } catch (error) {
         console.error(error);
       }
@@ -54,13 +47,14 @@ const Page = () => {
   }, []);
 
   if (!userData) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center items-center min-h-screen text-white">Loading...</div>;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white p-4 bg-animated-gradient animate-gradient-animation">
-      <Navbar/>
-      <div className="container mt-32 mx-auto space-y-8">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white p-4">
+      <Navbar />
+      <div className="container mx-auto mt-24 space-y-8 px-4 md:px-8">
+        
         {/* Profile Header */}
         <ProfileCard
           name={userData.name}
@@ -68,24 +62,24 @@ const Page = () => {
           avatarUrl={userData.avatarUrl}
         />
 
-        <div className='flex flex-row gap-10 justify-center'>
-          <div className='hover:scale-110 transition-all' >
-            {/* Participated Tournaments Chart */}
-
+        {/* Chart Section */}
+        <div className="flex md:flex-row flex-col items-center gap-8  justify-center">
+          
+          {/* Participated Tournaments Chart */}
+          <div className="hover:scale-110 transition-transform">
             <TournamentChart
-              labels={['January', 'February', 'March', 'April']} // Pass the labels as props
-              data={[10, 15, 20, 25]} // Pass the data for participated tournaments as props
+              labels={['January', 'February', 'March', 'April']}
+              data={[10, 15, 20, 25]}
             />
           </div>
-          <div className='hover:scale-110 transition-all' >
-            {/* Won Tournaments Chart */}
+
+          {/* Won Tournaments Chart */}
+          <div className="hover:scale-110 transition-transform">
             <TournamentChart
-              labels={['January', 'February', 'March', 'April']} // Pass the labels as props
-              data={[5, 7, 10, 12]} // Pass the data for won tournaments as props
+              labels={['January', 'February', 'March', 'April']}
+              data={[5, 7, 10, 12]}
             />
-
           </div>
-
         </div>
 
         {/* Tournament Stats Section */}
