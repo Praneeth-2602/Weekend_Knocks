@@ -1,5 +1,4 @@
 import { userDb } from "@/lib/db";
-import { Verified } from "lucide-react";
 import { Model, Schema } from "mongoose";
 import mongoose from "mongoose"
 interface IUser extends Schema {
@@ -9,15 +8,17 @@ interface IUser extends Schema {
     password: string,
     mobile: number,
     emailVerified: boolean,
-    mobileVerified: boolean
+    mobileVerified: boolean,
+    verificationToken: string,
+    createdAt: Date,
 }
 
-const userSchema = new Schema({
+const userSchema = new Schema({ 
     firstName:{
         type:String,
         required:true,
     },
-    lastname:{
+    lastName:{
         type:String,
         required:true,
     },
@@ -42,6 +43,13 @@ const userSchema = new Schema({
     mobileVerified:{
         type:Boolean,
         default:false,
+    },
+    verificationToken:{
+        type:String,
+    },
+    createdAt:{
+        type: Date, 
+        default: Date.now, 
     }
 
 })
