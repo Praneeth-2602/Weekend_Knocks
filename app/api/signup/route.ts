@@ -7,9 +7,10 @@ import bcrypt from "bcryptjs";
 import sendEmail from "@/app/utils/sendEmail";
 
 const BASE_URL = (process.env.BASE_URL as string) || "http://localhost:3000";
+const JWT_SECRET = (process.env.JWT_SECRET as string) || "tr$5%9)oe,b<";
 
 const POST = async (req: Request) => {
-  const data = await req.json()
+  const data = await req.json();
   const { firstName, lastName, email, password, mobile } = data as {
     firstName: string;
     lastName: string;
@@ -17,14 +18,12 @@ const POST = async (req: Request) => {
     password: string;
     mobile: number;
   };
-  console.log("Test0")
   if (!firstName || !lastName || !email || !password || !mobile) {
     return NextResponse.json(
       { Error: "Missing required fields" },
       { status: 400 }
     );
   }
-  console.log("Test")
   const user = await User.findOne({
     $or: [
       {
@@ -67,33 +66,33 @@ const POST = async (req: Request) => {
       );
     }
 
-    const JWT_SECRET = (process.env.JWT_SECRET as string) || "tr$5%9)oe,b<";
-
     const hashedPass = await bcrypt.hash(password, 10);
-    const verificationToken = jwt.sign({email:email}, JWT_SECRET, { expiresIn: "24h" });
+    const verificationToken = jwt.sign({ email: email }, JWT_SECRET, {
+      expiresIn: "24h",
+    });
     const newUser = new User({
       firstName,
       lastName,
       email,
       password: hashedPass,
       mobile,
-      verificationToken,
     });
     await newUser.save();
-    console.log("Test1")
+
+
+
     const html = await renderEmail(
       VerificationEmail({
         firstName,
         verificationUrl: `${BASE_URL}/api/verifyEmail?token=${verificationToken}`,
       })
     );
-    console.log("Test2")
     const emailResponse = await sendEmail(
       html,
       `prithvirajbanik900@gmail.com`,
       email
     );
-    console.log("Test2")
+
     if (!emailResponse) {
       return NextResponse.json(
         { Error: "Error sending email" },

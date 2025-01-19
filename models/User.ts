@@ -9,7 +9,6 @@ interface IUser extends Schema {
     mobile: number,
     emailVerified: boolean,
     mobileVerified: boolean,
-    verificationToken: string,
     createdAt: Date,
 }
 
@@ -43,10 +42,7 @@ const userSchema = new Schema({
     mobileVerified:{
         type:Boolean,
         default:false,
-    },
-    verificationToken:{
-        type:String,
-    },
+    }
     createdAt:{
         type: Date, 
         default: Date.now, 
