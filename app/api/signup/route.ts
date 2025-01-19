@@ -6,6 +6,8 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import sendEmail from "@/app/utils/sendEmail";
 
+
+//BASE_URL is the website url
 const BASE_URL = (process.env.BASE_URL as string) || "http://localhost:3000";
 const JWT_SECRET = (process.env.JWT_SECRET as string) || "tr$5%9)oe,b<";
 
@@ -93,7 +95,7 @@ const POST = async (req: Request) => {
     );
     const emailResponse = await sendEmail(
       html,
-      `prithvirajbanik900@gmail.com`,
+      `tempuser9001@gmail.com`,
       email
     );
 
