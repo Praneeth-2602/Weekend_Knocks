@@ -3,6 +3,11 @@ import User from "@/models/User";
 import jwt from "jsonwebtoken"
 const JWT_SECRET = (process.env.JWT_SECRET as string) || 'tr$5%9)oe,b<'
 import { generateAuthToken } from "@/app/utils/auth";
+
+/*
+Get Request in the format: api/verifyEmail?token=${verificationToken}
+*/
+
 const GET = async(req:Request) =>{
     const {searchParams} = new URL(req.url)
     const token = searchParams.get('token')

@@ -2,6 +2,12 @@ import User from "@/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs"
 import { generateAuthToken } from "@/app/utils/auth";
+
+/*
+POST request in the format {email : string, password : string}
+A successful response would return 200 status code and returns a cookie as a header as auth_token with all user details
+*/
+
 const POST = async(req:Request)=>{
 
     const {email,password} = await req.json()

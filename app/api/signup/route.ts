@@ -9,6 +9,12 @@ import sendEmail from "@/app/utils/sendEmail";
 const BASE_URL = (process.env.BASE_URL as string) || "http://localhost:3000";
 const JWT_SECRET = (process.env.JWT_SECRET as string) || "tr$5%9)oe,b<";
 
+/* 
+Post request accepts body as {firstName : string, lastName : string, email : string, password : string, mobile : number}
+A successful response with email being sent would return 201 status code
+Rest all codes return invalid response
+*/
+
 const POST = async (req: Request) => {
   const data = await req.json();
   const { firstName, lastName, email, password, mobile } = data as {
@@ -78,8 +84,6 @@ const POST = async (req: Request) => {
       mobile,
     });
     await newUser.save();
-
-
 
     const html = await renderEmail(
       VerificationEmail({
