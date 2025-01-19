@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import User from "@/models/User";
 import jwt from "jsonwebtoken"
-const JWT_SECRET = (process.env.JWT_SECRET as string) || 'tr$5%9)oe,b<'
+const JWT_SECRET = (process.env.JWT_SECRET as string)
 import { generateAuthToken } from "@/app/utils/auth";
 
 /*

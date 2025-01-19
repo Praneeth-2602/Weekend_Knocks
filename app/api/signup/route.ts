@@ -8,9 +8,8 @@ import sendEmail from "@/app/utils/sendEmail";
 
 
 //BASE_URL is the website url
-const BASE_URL = (process.env.BASE_URL as string) || "http://localhost:3000";
-const JWT_SECRET = (process.env.JWT_SECRET as string) || "tr$5%9)oe,b<";
-
+const BASE_URL = (process.env.BASE_URL as string)
+const JWT_SECRET = (process.env.JWT_SECRET as string) 
 /* 
 Post request accepts body as {firstName : string, lastName : string, email : string, password : string, mobile : number}
 A successful response with email being sent would return 201 status code

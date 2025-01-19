@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 import { Types } from "mongoose";
 import User from "@/models/User";
 dotenv.config()
-const JWT_SECRET = (process.env.JWT_SECRET as string) || 'tr$5%9)oe,b<'
+const JWT_SECRET = (process.env.JWT_SECRET as string)
 
 const middleware = async(req:NextRequest,res:NextResponse) =>{
     try {
