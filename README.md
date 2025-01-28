@@ -101,6 +101,13 @@ Join our community on Discord: [Weekend Knocks Discord](https://discord.gg/your-
 If you have any questions or suggestions, feel free to open an issue. 
 
 ---
+### Contributors
+A heartfelt thanks to our wonderful contributors 
 
+<a href="https://github.com/Praneeth-2602/Weekend_Knocks/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Praneeth-2602/Weekend_Knocks" />
+</a>
+
+---
 ### Acknowledgments  
 Thanks to **Social Winter of Code (SWOC)** for recognizing and supporting this project! 🙌  
