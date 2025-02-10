@@ -1,10 +1,14 @@
+'use client';
 import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
 import Card from '@/components/Card';
 import logo from '@/assets/logo.png';
+import ScrollToTop from "@/components/ScrollBtn";
 
 export default function EventsPage() {
     return (
+        <>
+        <ScrollToTop />
         <div className="bg-[var(--color-bg)] text-[var(--color-text-light)]">
             <Navbar />
             <div className="container mx-auto mt-[8em] p-8">
@@ -40,5 +44,6 @@ export default function EventsPage() {
             </div>
             <Footer />
         </div>
+        </>
     );
 }
