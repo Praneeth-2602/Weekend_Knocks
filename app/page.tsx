@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-
+import ScrollToTop from "@/components/ScrollBtn";
 import Slider from "@/components/Slider";
 import { FaFacebook, FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -172,6 +172,7 @@ export default function Home() {
 
   return (
     <>
+    <ScrollToTop />
       <Navbar />
       <div className="flex flex-col justify-center items-center bg-gray-900 text-white">
         {/* Hero Section */}
