@@ -15,6 +15,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FaEnvelope, FaYoutube, FaInstagram } from 'react-icons/fa';
+import ScrollToTop from "@/components/ScrollBtn";
 
 const info = [
     {
@@ -40,6 +41,7 @@ const info = [
 function Contact() {
     return (
         <>
+        <ScrollToTop />
             <Navbar />
             <div className="flex flex-col items-center justify-center h-screen mt-[9em]">
                 <section className="container mx-auto p-6 bg-[var(--color-background)] rounded-lg shadow-lg">

@@ -5,6 +5,7 @@ import ServiceCard from '@/components/ServiceCard';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ScrollToTop from "@/components/ScrollBtn";
 
 const services = [
   {
@@ -66,6 +67,7 @@ export default function ServicesPage() {
 
   return (
     <>
+    <ScrollToTop />
     <Navbar/>
     <div className="min-h-screen bg-[var(--primary-color)]">
       {/* Hero Section */}
