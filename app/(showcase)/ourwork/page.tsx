@@ -1,7 +1,9 @@
+'use client';
 import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
 import Card from '@/components/Card';
 import logo from '@/assets/logo.png';
+import ScrollToTop from "@/components/ScrollBtn";
 
 export default function OurWorkPage() {
 
@@ -16,6 +18,8 @@ export default function OurWorkPage() {
     ];
 
     return (
+        <>
+        <ScrollToTop />
         <div>
             <Navbar />
             <div className='flex justify-center items-center min-h-screen'>
@@ -50,7 +54,7 @@ export default function OurWorkPage() {
             </div>
             <Footer />
         </div>
-
+        </>
     );
 
 }
