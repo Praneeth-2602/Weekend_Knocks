@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import React from 'react';
 import { useParams } from 'next/navigation';
 import bg from '@/assets/login_bg.jpg';
+import ScrollToTop from "@/components/ScrollBtn";
 
 interface Sponsor {
     name: string;
@@ -35,6 +36,7 @@ function Page() {
 
     return (
         <>
+        <ScrollToTop />
             <Navbar />
 
             {/* Fixed Background Image with Blur Effect */}
