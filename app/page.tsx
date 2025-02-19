@@ -327,6 +327,72 @@ export default function Home() {
           </div>
         </section>
 
+<style jsx global>{`
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+`}</style>
+
+<section
+  className="tournaments-section bg-gray-900 font-sans"
+  style={{
+    backgroundImage: `url('/img/background.jpg')`,
+    backgroundRepeat: 'repeat',
+  }}
+>
+  <div className="container mx-auto px-4 py-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {tournaments.map((tournament, index) => (
+        <div
+          key={index}
+          className="tournament-item bg-gray-900 text-white shadow-lg hover:shadow-2xl rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 animate-fadeInUp"
+          style={{ animationDelay: `${index * 100}ms` }}
+        >
+          <div className="ti-notic bg-yellow-500 text-black text-xs font-bold uppercase inline-block px-5 py-2 transform transition-transform duration-300 hover:scale-105">
+            Premium Tournament
+          </div>
+          <div className="ti-content flex items-start p-6">
+            <div
+              className="ti-thumb w-40 h-40 bg-cover bg-center rounded-lg transform transition-transform duration-300 hover:scale-105"
+              style={{ backgroundImage: `url(${tournament.image})` }}
+            ></div>
+            <div className="ti-text pl-6 flex-1">
+              <h4 className="text-yellow-500 font-bold mb-4 text-lg hover:text-yellow-400 transition-colors">
+                {tournament.title}
+              </h4>
+              <ul className="mb-4 text-sm">
+                {/* List items remain the same */}
+              </ul>
+              <p className="text-sm">
+                <span className="font-semibold text-yellow-500 hover:text-yellow-400 transition-colors">
+                  Prizes:
+                </span>{' '}
+                {tournament.prizes}
+              </p>
+              <a 
+                href="/events" 
+                className="text-blue-400 mt-4 inline-block transition-all hover:text-blue-300 hover:translate-x-2"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* Footer Section */}
         <footer className="bg-gray-800 py-12 text-gray-300">
