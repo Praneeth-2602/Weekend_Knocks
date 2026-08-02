@@ -1,113 +1,85 @@
-# Weekend Knocks 🎮  
-**Weekend Knocks** is a vibrant eSports community designed for passionate gamers and aspiring professionals pursuing undergraduate studies across India. The platform focuses on hosting inter-college tournaments, team matchmaking, and fostering collaboration, all while creating a fun, engaging Saturday night experience.  
+# Weekend Knocks
 
-## Features 🚀  
-- **Inter-College Tournaments**: Compete with teams from various colleges.  
-- **Team Matchmaking**: Find and form teams with like-minded gamers.  
-- **Leaderboards**: Track performance and rankings in real-time.  
-- **Live Streams**: Watch matches live and share the excitement.  
-- **Community Forums**: Discuss strategies, share highlights, and connect with fellow gamers.  
-- **Exclusive Events**: Participate in polls, special events, and challenges.  
+Inter-college **eSports community** site for students in India — marketing pages, auth, and event showcase UI aimed at Saturday-night tournaments and team play.
 
----
+> Honest status: this is an **early Next.js shell** (auth + content UI + OSS community scaffolding). Tournament backends, live matchmaking, Discord bots, and leaderboards from the long-term roadmap are **not fully implemented** yet.
 
-## Tech Stack 🛠️  
-- **Frontend**: Next.js, Tailwind CSS  
-- **Backend**: Node.js, Express.js  
-- **Database**: MongoDB  
-- **Community**: Discord Integration  
+## What’s working today
 
----
+| Area | Status |
+|---|---|
+| Marketing / landing UI | Working |
+| Signup / login / email verify API routes | Working (Mongo + JWT cookies) |
+| Events showcase pages | Present (largely **static / example** cards) |
+| GitHub community workflows (SWOC-style) | Present |
+| Tournament engine, matchmaking, Discord bot | Roadmap |
 
-## Getting Started 🧑‍💻  
+## Stack
 
-### Prerequisites  
-Ensure you have the following installed:  
-- [Node.js](https://nodejs.org/) (v16.x or above)  
-- [MongoDB](https://www.mongodb.com/)  
-- A text editor or IDE (e.g., VS Code)  
+- **Next.js 14** (App Router) + React 18 + TypeScript  
+- **Tailwind** + Radix UI + Framer Motion / GSAP  
+- **MongoDB** via Mongoose  
+- **JWT** + bcrypt auth in Next route handlers  
+- Email via Nodemailer / Resend (see `example.env`)
 
-### Installation  
-1. **Clone the Repository**:  
-   ```bash  
-   git clone https://github.com/your-username/weekend-knocks.git  
-   cd weekend-knocks  
-   ```  
+There is **no separate Express app** in this tree; API routes live under `app/api/`.
 
-2. **Install Dependencies**:  
-   ```bash  
-   npm install  
-   ```  
+## Quick start
 
-3. **Set Up Environment Variables**:  
-   Create a `.env` file in the root directory with the following:  
-   ```env  
-   MONGO_URI=<Your MongoDB Connection String>  
-   PORT=5000  
-   JWT_SECRET=<Your Secret Key>  
-   ```  
+```bash
+cd Weekend_Knocks
+cp example.env .env.local
+# set MONGO_URI, JWT_SECRET, and email vars
+npm install
+npm run dev
+```
 
-4. **Run the Development Server**:  
-   ```bash  
-   npm run dev  
-   ```  
+Open [http://localhost:3000](http://localhost:3000) (Next default — not port 5000).
 
-5. Open your browser and go to `http://localhost:5000`.  
+### Environment
 
----
+| Variable | Purpose |
+|---|---|
+| `MONGO_URI` | MongoDB connection string |
+| `JWT_SECRET` | Cookie / token signing |
+| `BASE_URL` | Canonical site URL |
+| Email host/user/pass | Verification mail (Mailtrap or Resend) |
 
-## Contribution Guidelines 🤝  
+Do not commit real credentials. `example.env` is a template only.
 
-We welcome contributions to **Weekend Knocks**! Here's how you can get started:  
+## Layout
 
-1. Fork the repository.  
-2. Create a new branch:  
-   ```bash  
-   git checkout -b feature-name  
-   ```  
-3. Make your changes and commit them:  
-   ```bash  
-   git commit -m "Add your message here"  
-   ```  
-4. Push to your fork and create a pull request.  
+```
+app/
+  (marketing)/ (auth)/ (showcase)/ (user)/   # route groups
+  api/signup|login|verifyEmail/
+components/   # UI
+models/       # User mongoose model
+lib/          # db helpers
+.github/      # contribution automation
+```
 
-**Before contributing, please take a moment to read our [Contributing Guidelines](CONTRIBUTING.md).**  
+## Roadmap
 
-### Code of Conduct  
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand our community expectations.  
-
----
-
-## Project Roadmap 🗺️  
-
-### Phase 1: Core Features  
+### Phase 1 — Core product
 - [ ] Inter-college team matchmaking  
 - [ ] Tournament hosting module  
-- [ ] Leaderboards and performance tracking  
+- [ ] Live leaderboards  
 
-### Phase 2: Community Engagement  
+### Phase 2 — Community
 - [ ] Discord bot integration  
-- [ ] Match highlights and event reports  
+- [ ] Match highlights / reports  
 
-### Phase 3: Advanced Features  
-- [ ] AI-driven team recommendations  
-- [ ] Cross-platform app support  
+### Phase 3 — Advanced
+- [ ] AI-assisted team recommendations  
+- [ ] Broader client platforms  
 
----
+## Contributing
 
-## Community and Support 💬  
-Join our community on Discord: [Weekend Knocks Discord](https://discord.gg/your-invite-link)  
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
-If you have any questions or suggestions, feel free to open an issue. 
+Thanks to **Social Winter of Code (SWOC)** supporters and [contributors](https://github.com/Praneeth-2602/Weekend_Knocks/graphs/contributors).
 
----
-### Contributors
-A heartfelt thanks to our wonderful contributors 
+## License / community
 
-<a href="https://github.com/Praneeth-2602/Weekend_Knocks/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Praneeth-2602/Weekend_Knocks" />
-</a>
-
----
-### Acknowledgments  
-Thanks to **Social Winter of Code (SWOC)** for recognizing and supporting this project! 🙌  
+Open to student contributors; open an issue for questions or feature pitches.
